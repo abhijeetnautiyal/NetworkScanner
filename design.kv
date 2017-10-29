@@ -1,0 +1,116 @@
+<Screen1>:
+    BoxLayout:
+        canvas:
+            Rectangle:
+                source: 'kapy-bg.jpg'
+                size: self.size
+                pos: self.pos
+        BoxLayout:
+            orientation: 'vertical'
+            id: client_box
+            size_hint: 0.5, 1
+            spacing : 10
+            Image:
+                source:'zips/pyspin.zip'
+                anim_delay: 1/80
+                allow_stretch: False
+                pos_hint: {'x': -.3}
+            Label:
+                id: device_lbl
+                markup: True
+                size_hint: 1, 1
+                text:'Label :0'
+            BoxLayout:
+                TextInput:
+                    id: iface_name
+                    size_hint: 0.2, 0.2
+                    text: 'wlp4s0'#default itefce
+                    multiline: False
+                Switch:
+                    size_hint: 0.3, 0.1
+            BoxLayout:
+                Button:
+                    size_hint: .5, .4
+                    text: '[color=00ff00]Run Ifconfig[/color]'
+                    on_release: root.run_ifconfig()
+                    markup: True
+                    background_normal: 'buttonBG.png'
+
+                Button:
+                    id:scnLAN
+                    size_hint: .5, .4
+                    text: '[color=00ff00]ARP scan[/color]'
+                    on_release:root.ARPscan()
+                    disabled: True
+                    markup: True
+                    background_normal: 'buttonBG.png'
+                Button:
+                    id: save_btn
+                    size_hint: .5, .4
+                    text: '[color=00ff00]Save Results [/color]'
+                    markup: True
+                    background_normal: 'buttonBG.png'
+                    disabled: True
+                    on_press: root.saveResults()
+
+        ScrollView:
+            size_hint: 0.5, 1
+            do_scroll_x: False
+            bar_width: 10
+            BoxLayout:
+                orientation: 'vertical'
+                id: nodes
+                size_hint: 1, None
+                background_normal: 'buttonBG.png'
+
+
+<Screen2>:
+    BoxLayout:
+        canvas:
+            Rectangle:
+                source: 'kapy-bg.jpg'
+                size: self.size
+                pos: self.pos
+
+        BoxLayout:
+            orientation: 'vertical'
+            BoxLayout:
+                orientation: 'vertical'
+                Label:
+                    text: 'Target Info'
+
+            BoxLayout:
+                Button:
+                    text: '[color=00ff00]Back[/color]'
+                    size_hint: 1, .1
+                    on_press: root.main_screen()
+                    background_normal: 'buttonBG.png'
+                    markup: True
+                Button:
+                    text: '[color=00ff00]Port Scan[/color]'
+                    size_hint: 1, .1
+                    on_press: root.main_screen()
+                    background_normal: 'buttonBG.png'
+                    markup: True
+                Button:
+                    text: '[color=00ff00]Save Results[/color]'
+                    size_hint: 1, .1
+                    on_press: root.main_screen()
+                    background_normal: 'buttonBG.png'
+                    markup: True
+
+
+
+
+        BoxLayout:
+            orientation: 'vertical'
+            Label:
+                text: 'Open Ports'
+            Button:
+                text : 'Back'
+                on_press: root.main_screen()
+                size_hint: 1, .1
+
+
+
+
